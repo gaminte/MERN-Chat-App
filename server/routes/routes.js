@@ -138,7 +138,7 @@ router.get("/allAvatars", async (req, res) => {
 router.get("/allMessages/:id", async (req, res) => {
   try {
     const selectedId = req.params.id;
-    const token = req.headers.cookie.split("=")[1];
+    const token = req.headers.cookie.split(";").find(str => str.startsWith("token=")).split("=")[1];
     const userData = jwt.verify(
       token,
       process.env.JWT_SECRET,
