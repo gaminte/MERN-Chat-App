@@ -1,0 +1,9 @@
+const host = "http://localhost:3000";
+export const registerRoute = `${host}/register`;
+export const loginRoute = `${host}/login`;
+export const profileCheckRoute = `${host}/profile`;
+export const avatarRoute = `${host}/avatar`;
+export const allAvatarsRoute = `${host}/allAvatars`;
+export const allMessagesRoute = `${host}/allMessages`;
+export const allPeopleRoute = `${host}/allPeople`;
+export const logoutRoute = `${host}/logout`;
