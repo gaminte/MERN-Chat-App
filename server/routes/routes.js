@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
       {},
       (err, token) => {
         if (err) throw err;
-        res.cookie("token", token).status(201).json({
+        res.cookie("token", token, {sameSite: "none", secure: true}).status(201).json({
           id: newUser._id,
           username: newUser.username,
           isAvatarImageSet: newUser.isAvatarImageSet,
@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
         {},
         (err, token) => {
           if (err) throw err;
-          res.cookie("token", token).status(200).json({
+          res.cookie("token", token, {sameSite: "none", secure: true}).status(200).json({
             id: user._id,
             username: user.username,
             isAvatarImageSet: user.isAvatarImageSet,
@@ -114,7 +114,7 @@ router.post("/avatar/:id", async (req, res) => {
       {},
       (err, token) => {
         if (err) throw err;
-        res.cookie("token", token).status(200).json({
+        res.cookie("token", token, {sameSite: "none", secure: true}).status(200).json({
           token: token,
           isAvatarImageSet: true,
           result: true,
