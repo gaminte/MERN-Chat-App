@@ -163,6 +163,18 @@ router.get("/allPeople", async (req, res) => {
   res.status(200).json(people);
 });
 
+router.get("/userAvatar/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (id !== undefined) {
+      const userAvatar = await User.findById(id).select({ avatarImage: 1 });
+      res.status(200).json(userAvatar);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.get("/logout", (req, res) => {
   res.cookie("token", "").json("ok");
 });
